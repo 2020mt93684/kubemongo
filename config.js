@@ -44,7 +44,8 @@ function getFile(filePath) {
   }
   return null;
 }
-
+//Function to get the File Environment
+//Args : envVariable
 function getFileEnv(envVariable) {
   const origVar = process.env[envVariable];
   const fileVar = process.env[envVariable + '_FILE'];
@@ -57,7 +58,7 @@ function getFileEnv(envVariable) {
   // returns origVar of no fileVar is found
   return origVar;
 }
-
+//Functionto get BinaryFiles
 function getBinaryFileEnv(envVariable) {
   const fileVar = process.env[envVariable];
   return getFile(fileVar);
@@ -67,6 +68,7 @@ const meConfigMongodbServer = process.env.ME_CONFIG_MONGODB_SERVER
   ? process.env.ME_CONFIG_MONGODB_SERVER.split(',')
   : false;
 
+//Function to get Connection Strings
 function getConnectionStringFromEnvVariables() {
   const infos = {
     // server: mongodb hostname or IP address
