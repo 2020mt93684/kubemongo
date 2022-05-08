@@ -11,8 +11,8 @@ EXPOSE 8081
 ENV ME_CONFIG_EDITORTHEME="default" \
     ME_CONFIG_MONGODB_URL="mongodb://mongo:27017" \
     ME_CONFIG_MONGODB_ENABLE_ADMIN="true" \
-    ME_CONFIG_BASICAUTH_USERNAME="" \
-    ME_CONFIG_BASICAUTH_PASSWORD="" \
+    ME_CONFIG_BASICAUTH_USERNAME="${MONGO_ROOT_USERNAME}" \
+    ME_CONFIG_BASICAUTH_PASSWORD="${MONGO_ROOT_PASSWORD}" \
     VCAP_APP_HOST="0.0.0.0"
 
 ENV MONGO_EXPRESS 1.0.0-alpha.4
@@ -31,4 +31,6 @@ WORKDIR /node_modules/mongo-express
 COPY config.js /node_modules/mongo-express/config.js
 
 ENTRYPOINT [ "tini", "--", "/docker-entrypoint.sh"]
+
+# RUN mongo-express-service
 CMD ["mongo-express"]
