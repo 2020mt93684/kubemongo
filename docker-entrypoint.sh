@@ -5,7 +5,7 @@ set -eo pipefail
 if [ "${1}" != "mongo-express" ]; then
     exec "$@"
 fi
-
+# function to wait for tcp_port
 function wait_tcp_port {
     local host="$1" port="$2"
     local max_tries=5 tries=1
