@@ -1,3 +1,4 @@
+# Required for running the application in the docker container
 # https://nodejs.org/en/about/releases/
 # https://github.com/nodejs/Release#readme
 FROM node:12-alpine3.11
