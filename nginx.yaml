@@ -4,6 +4,7 @@ metadata:
   name: nginx-deploy
   labels:
     app: nginx
+    service: kubemongo
 spec:
   replicas: 1
   selector:
